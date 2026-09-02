@@ -142,7 +142,7 @@ obj.normal(); // 'kim' — 함수 표현식으로 된 만 호출 방식(obj.)이
 
 ---
 
-# 마찬가지로, debounce에서도 화살표 함수를 쓰면 this가 유실됩니다.
+# 그래서 `func.apply(this, args)`가 필요합니다
 
 ```typescript
 const counter = {
@@ -153,15 +153,19 @@ const counter = {
 };
 
 counter.increment = debounce(counter.increment, 300);
-counter.increment(); // 호출은 성공 → 300ms 뒤 TypeError: Cannot read properties of undefined
+counter.increment(); // 300ms 뒤 TypeError: Cannot read properties of undefined
 ```
 
-`counter.increment()`로 불렀으니 **debounced 함수**의 this는 `counter`가 호출되어야 합니다.
-하지만 내부에서 `func(...args)`로 그냥 호출하는 순간 **원본 `increment`**의 this는 `undefined`가 됩니다.
+`counter.increment()`가 넘긴 this는 **debounce된 함수 내에서 계속 유효**합니다.
+그렇지만, 300ms 뒤 타이머가 `func(...args)`를 부르는 건 **바인딩 없는 호출**이라, this가 존재하지 않습니다.
+따라서, 아래와 같이 `func.apply`를 사용합니다.
 
-> this는 호출자가 넘기는 **암묵적 인자**다.
-
-따라서, `func.apply(this, args)`로 전달하여 해당 문제를 해결할 수 있었습니다.
+```typescript
+return function (...args) {
+  // 일반 함수라야 this를 받는다
+  setTimeout(() => func.apply(this, args), delay); // 화살표가 그 this를 담아 원본에 넘긴다
+};
+```
 
 ---
 
