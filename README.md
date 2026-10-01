@@ -12,11 +12,12 @@
 
 ## 진행 기록
 
-| 회차 |   날짜   |                   발표자                    | 주제                    |
-| :--: |:------:| :-----------------------------------------: |-----------------------|
-|  1   | 260827 | [@juwonk1018](https://github.com/juwon-dev) | 디바운스 직접 구현            |
-|  2   | 260903 | [@FEhyoeun](https://github.com/FEhyoeun) | CSS와 관련된 개념들이 다양해진 이유 |
-|  3   | 260916       |     [@mijip0320](https://github.com/mijip0320)                             |     React 전역 상태와 TanStack Query                  |
+| 회차 |  날짜  |                   발표자                    | 주제                                |
+| :--: | :----: | :-----------------------------------------: | ----------------------------------- |
+|  1   | 260827 | [@juwonk1018](https://github.com/juwon-dev) | 디바운스 직접 구현                  |
+|  2   | 260903 |  [@FEhyoeun](https://github.com/FEhyoeun)   | CSS와 관련된 개념들이 다양해진 이유 |
+|  3   | 260916 | [@mijip0320](https://github.com/mijip0320)  | React 전역 상태와 TanStack Query    |
+|  4   | 261001 | [@juwonk1018](https://github.com/juwon-dev) | i18n 라이브러리 비교 및 고려사항    |
 
 ## 레포 구조
 
